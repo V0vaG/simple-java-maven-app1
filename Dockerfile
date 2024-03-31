@@ -24,6 +24,7 @@ COPY --from=base . .
 # Run the build
 RUN mvn package
 
+RUN cd target
 RUN ls
 # Use Java 17 as the base for the 2nd stage build
 FROM openjdk:17-jdk-slim
