@@ -33,10 +33,10 @@ jobs:
         password: ${{ secrets.DOCKER_HUB_T }}     
         
     - name: tag latest
-      run: docker tag hello:latest vova0911/project:latest
+      run: docker tag project:latest vova0911/project:latest
     
     - name: tag version
-      run: docker tag hello:latest vova0911/project:$MAJOR_NUM.$MINOR_NUM.$PATCH_NUM 
+      run: docker tag project:latest vova0911/project:$MAJOR_NUM.$MINOR_NUM.$PATCH_NUM 
       
     - name: push latest
       run: docker push vova0911/project:latest
