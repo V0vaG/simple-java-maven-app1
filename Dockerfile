@@ -1,6 +1,6 @@
 # Use Maven as the base image
 
-FROM openjdk:8 as base
+FROM maven:3.8.6-jdk-11 as base
 
 ARG MAVEN_VERSION=3.9.6
 
