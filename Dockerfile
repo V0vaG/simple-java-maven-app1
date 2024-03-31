@@ -1,5 +1,8 @@
 # Use Maven as the base image
+
 FROM eclipse-temurin:11-jdk as base
+
+ARG MAVEN_VERSION=3.9.6
 
 # Pass the build num argument from the workflow to the dockerfile
 ARG MAJOR_NUM
