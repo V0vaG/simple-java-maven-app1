@@ -38,10 +38,10 @@ ARG PATCH_NUM
 COPY --from=builder /target/my-app-$MAJOR_NUM.$MINOR_NUM.$PATCH_NUM.jar .
 
 # Add new user
-RUN adduser vova-kepler
+#RUN adduser vova-kepler
 
 # Set the non-root user as the default user
-USER vova-kepler
+#USER vova-kepler
 
 # Run the .jar file
 CMD java -jar *.jar
