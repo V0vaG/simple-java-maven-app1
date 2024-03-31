@@ -46,3 +46,4 @@ COPY --from=builder /target/my-app-$MAJOR_NUM.$MINOR_NUM.$PATCH_NUM.jar .
 # Run the .jar file
 CMD java -jar *.jar
 
+
