@@ -1,6 +1,6 @@
 # Use Maven as the base image
 
-FROM eclipse-temurin:11-jdk as base
+FROM openjdk:8 as base
 
 ARG MAVEN_VERSION=3.9.6
 
