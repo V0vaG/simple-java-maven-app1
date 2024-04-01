@@ -46,6 +46,6 @@ COPY --from=builder /target/my-app-$MAJOR_NUM.$MINOR_NUM.$PATCH_NUM.jar .
 RUN ls
 
 # Run the .jar file
-CMD java -jar *.jar
+CMD java -jar my-app-$MAJOR_NUM.$MINOR_NUM.$PATCH_NUM.jar
 
 
