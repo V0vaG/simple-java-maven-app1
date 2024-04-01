@@ -43,6 +43,8 @@ COPY --from=builder /target/my-app-$MAJOR_NUM.$MINOR_NUM.$PATCH_NUM.jar .
 # Set the non-root user as the default user
 #USER vova-kepler
 
+RUN ls
+
 # Run the .jar file
 CMD java -jar *.jar
 
