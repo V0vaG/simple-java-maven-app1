@@ -3,12 +3,14 @@ provider "aws" {
 }
 
 resource "aws_instance" "example" {
-  ami = "ami-0b5c5343f7e9de232"  
-  instance_type = "t3.micro"
+  instance_type          = var.my_instance_type
+  ami                    = var.my_ami
+  key_name               = ec2_s_key
+  #private_ip             = "172.31.40.104"
   vpc_security_group_ids = ["${aws_security_group.project_sg.id}"]
 
   tags = {
-    Name = "project"
+    Name = "vova_project"
   }
   user_data = "${file("run.sh")}"
 }
