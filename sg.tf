@@ -3,7 +3,7 @@ data "http" "myip" {
 }
 
 resource "aws_security_group" "project_sg" {
-  name        = "project_allow"
+  name        = "project_allow1"
   description = "Allow TLS inbound traffic"
   
 
