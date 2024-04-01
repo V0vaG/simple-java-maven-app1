@@ -20,7 +20,7 @@ install_docker_and_compose(){
     sudo chmod +x /usr/local/bin/docker-compose
 }
 
-install_docker_and_compose
+#install_docker_and_compose
 
 docker stop $(docker ps -aq)
 
