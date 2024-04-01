@@ -30,11 +30,11 @@ RUN ls
 FROM openjdk:17-jdk-slim
 
 # Pass the build num argument from the workflow to the dockerfile
-ARG MAJOR_NUM
+#ARG MAJOR_NUM
 ARG MINOR_NUM
 ARG PATCH_NUM
 
-ENV MAJOR_NUM=$MAJOR_NUM
+ENV MAJOR_NUM=ARG MAJOR_NUM
 ENV MINOR_NUM=$MINOR_NUM
 ENV PATCH_NUM=$PATCH_NUM
 
