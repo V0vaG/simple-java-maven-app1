@@ -1,5 +1,5 @@
 variable "my_ami" {
-  default = "ami-0b5c5343f7e9de232"  
+  default = "ami-035a4ef64c26f7dc8"  
 }
 
 variable "my_instance_type" {
