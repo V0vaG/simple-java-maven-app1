@@ -2,8 +2,8 @@ data "http" "myip" {
   url = "https://ipv4.icanhazip.com"
 }
 
-resource "aws_security_group" "vova_sg" {
-  name        = "terraform_allow"
+resource "aws_security_group" "project_sg" {
+  name        = "project_allow"
   description = "Allow TLS inbound traffic"
   
 
