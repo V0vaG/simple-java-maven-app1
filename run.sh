@@ -22,11 +22,12 @@ install_docker_and_compose(){
 
 install_docker_and_compose
 
-docker stop project
+docker stop $(docker ps -aq)
 
-docker rm project
+docker rm $(docker ps -aq)
 
 docker rmi vova0911/project
 
-docker run --name project vova0911/project
+docker run --name vova_project vova0911/project
+
 
