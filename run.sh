@@ -26,7 +26,7 @@ docker stop project
 
 docker rm project
 
-docker rmi vvova0911/project
+docker rmi vova0911/project
 
-docker run --name project docker run vova0911/project
+docker run --name project vova0911/project
 

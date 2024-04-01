@@ -1,5 +1,6 @@
 data "http" "myip" {
   url = "https://ipv4.icanhazip.com"
+  
 }
 
 resource "aws_security_group" "project_sg" {
@@ -16,7 +17,7 @@ resource "aws_security_group" "project_sg" {
       from_port   = port.value
       to_port     = port.value
       protocol    = "tcp"
-      cidr_blocks = port.value==22 ? ["${chomp(data.http.myip.response_body)}/32"] : ["0.0.0.0/0"]
+      cidr_blocks = port.value==22 ? ["172.17.0.1/16"] : ["0.0.0.0/0"]
     }
   }
 
