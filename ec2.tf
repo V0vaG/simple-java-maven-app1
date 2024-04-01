@@ -13,3 +13,4 @@ resource "aws_instance" "example" {
   user_data = "${file("run.sh")}"
 }
 
+
