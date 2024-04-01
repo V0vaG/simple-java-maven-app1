@@ -8,6 +8,9 @@ ARG MAVEN_VERSION=3.9.6
 ARG MAJOR_NUM
 ARG MINOR_NUM
 ARG PATCH_NUM
+ENV MAJOR_NUM=$MAJOR_NUM
+ENV MINOR_NUM=$MINOR_NUM
+ENV PATCH_NUM=$PATCH_NUM
 
 # Copy the Maven project into the Docker image
 COPY . .
@@ -29,13 +32,9 @@ RUN ls
 # Use Java 17 as the base for the 2nd stage build
 FROM openjdk:17-jdk-slim
 
-# Pass the build num argument from the workflow to the dockerfile
-ARG MAJOR_NUM
-ARG MINOR_NUM
-ARG PATCH_NUM
-
 # Copy Artifact .jar file from 1st build
 COPY --from=builder /target/my-app-$MAJOR_NUM.$MINOR_NUM.$PATCH_NUM.jar .
+
 
 # Add new user
 #RUN adduser vova-kepler
@@ -43,7 +42,7 @@ COPY --from=builder /target/my-app-$MAJOR_NUM.$MINOR_NUM.$PATCH_NUM.jar .
 # Set the non-root user as the default user
 #USER vova-kepler
 
-RUN ls
+#RUN ls
 
 # Run the .jar file
 CMD java -jar my-app-$MAJOR_NUM.$MINOR_NUM.$PATCH_NUM.jar
