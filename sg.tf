@@ -9,7 +9,7 @@ resource "aws_security_group" "project_sg" {
   
 
   dynamic "ingress" {
-    for_each = [22,80,443,5000]
+    for_each = [22]
     iterator = port
 
     content {
@@ -17,7 +17,7 @@ resource "aws_security_group" "project_sg" {
       from_port   = port.value
       to_port     = port.value
       protocol    = "tcp"
-      #cidr_blocks = port.value==22 ? ["0.0.0.0/0"] : ["0.0.0.0/0"]
+      cidr_blocks = ["0.0.0.0/0"]
     }
   }
 
