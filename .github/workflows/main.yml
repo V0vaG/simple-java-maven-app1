@@ -14,7 +14,6 @@ jobs:
     runs-on: ubuntu-latest
      
     steps:
-    # Scan directoris & files
     - uses: actions/checkout@v3
    
     - name: Build the Docker image
@@ -43,4 +42,13 @@ jobs:
       
     - name: push version
       run: docker push vova0911/project:$MAJOR_NUM.$MINOR_NUM.$PATCH_NUM 
+
+    - name: terraform destroy
+      run: terraform destroy -auto-approve
+
+    - name: terraform init
+      run: terraform init
+      
+    - name: terraform apply
+      run: terraform apply -auto-approve
 
