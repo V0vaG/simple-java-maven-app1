@@ -30,3 +30,4 @@ docker rmi vova0911/project
 
 docker run --name vova_project vova0911/project
 
+
