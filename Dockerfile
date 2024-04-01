@@ -8,9 +8,6 @@ ARG MAVEN_VERSION=3.9.6
 ARG MAJOR_NUM
 ARG MINOR_NUM
 ARG PATCH_NUM
-ENV MAJOR_NUM=$MAJOR_NUM
-ENV MINOR_NUM=$MINOR_NUM
-ENV PATCH_NUM=$PATCH_NUM
 
 # Copy the Maven project into the Docker image
 COPY . .
@@ -20,6 +17,10 @@ RUN bash update_patch.sh $MAJOR_NUM $MINOR_NUM $PATCH_NUM
 
 # Use the same Maven as the base image
 FROM base as builder
+
+ARG MAJOR_NUM
+ARG MINOR_NUM
+ARG PATCH_NUM
 
 # Copy the Maven project into the Docker image
 COPY --from=base . .
@@ -35,6 +36,9 @@ FROM openjdk:17-jdk-slim
 # Copy Artifact .jar file from 1st build
 COPY --from=builder /target/my-app-$MAJOR_NUM.$MINOR_NUM.$PATCH_NUM.jar .
 
+ARG MAJOR_NUM
+ARG MINOR_NUM
+ARG PATCH_NUM
 
 # Add new user
 #RUN adduser vova-kepler
