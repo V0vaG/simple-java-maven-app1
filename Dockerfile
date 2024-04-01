@@ -34,6 +34,10 @@ ARG MAJOR_NUM
 ARG MINOR_NUM
 ARG PATCH_NUM
 
+ENV MAJOR_NUM=$MAJOR_NUM
+ENV MINOR_NUM=$MINOR_NUM
+ENV PATCH_NUM=$PATCH_NUM
+
 # Copy Artifact .jar file from 1st build
 COPY --from=builder /target/my-app-$MAJOR_NUM.$MINOR_NUM.$PATCH_NUM.jar .
 
@@ -46,6 +50,5 @@ COPY --from=builder /target/my-app-$MAJOR_NUM.$MINOR_NUM.$PATCH_NUM.jar .
 RUN ls
 
 # Run the .jar file
-CMD java -jar *.jar
-
+CMD java -jar my-app-$MAJOR_NUM.$MINOR_NUM.$PATCH_NUM.jar
 
