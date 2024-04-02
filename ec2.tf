@@ -6,6 +6,7 @@ resource "aws_instance" "example" {
   instance_type          = var.my_instance_type
   ami                    = var.my_ami
   key_name               = "ec2_s_key"
+  subnet_id              = aws_subnet.public_subnets.id
   #private_ip             = "172.31.40.104"
   vpc_security_group_ids = ["${aws_security_group.project_sg.id}"]
 

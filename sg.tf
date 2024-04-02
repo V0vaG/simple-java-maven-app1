@@ -6,6 +6,7 @@ data "http" "myip" {
 resource "aws_security_group" "project_sg" {
   name        = "project_allow2"
   description = "Allow TLS inbound traffic"
+  vpc_id      = aws_vpc.main.id
   
 
   dynamic "ingress" {
